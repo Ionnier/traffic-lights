@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TrafficLightDao {
-
     @Query("SELECT * FROM trafficlight")
     fun getAll(): Flow<List<TrafficLight>>
 
@@ -20,6 +19,13 @@ interface TrafficLightDao {
 
     @Delete
     fun delete(trafficLight: TrafficLight)
+}
 
+@Dao
+interface AlternativeDao{
+    @Query("SELECT * FROM alternative")
+    fun getAllAlternatives(): Flow<List<Alternative>>
 
+    @Insert
+    fun insert(alternative: Alternative)
 }

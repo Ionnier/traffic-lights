@@ -1,5 +1,6 @@
 package com.example.semafoare
 
+import android.app.AlertDialog
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.graphics.Color
@@ -12,10 +13,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.semafoare.database.Alternative
 import com.example.semafoare.databinding.FragmentEditTrafficLightBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +37,9 @@ class EditTrafficLight : Fragment() {
     private val binding get() = _binding!!
     private val args: EditTrafficLightArgs by navArgs()
 
+    private var allAlternatives: List<Alternative>? = null
+    private var position: Int = -1
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +51,9 @@ class EditTrafficLight : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.allAlternatives().asLiveData().observe(this, {
+            it?.let { allAlternatives = it }
+        })
         binding.id.text = context?.resources?.let { String.format(it.getString(R.string.id), args.trafficLight.trafficLightId) }
         binding.latitude.text =
             context?.resources?.let { String.format(it.getString(R.string.latitude), args.trafficLight.latitude) }
@@ -51,7 +61,31 @@ class EditTrafficLight : Fragment() {
             context?.resources?.let { String.format(it.getString(R.string.longitude), args.trafficLight.longitude) }
         binding.createdAt.text =
             context?.resources?.let { String.format(it.getString(R.string.created_at),args.trafficLight.createdTime.toString()) }
-        binding.editText.setText(args.trafficLight.alternativeTitle?:"")
+        if(args.trafficLight.alternative != null){
+            binding.alternative.text =
+                context?.resources?.let { String.format(it.getString(R.string.traffic_know_alt), args.trafficLight.alternative!!.alternativeTitle)}
+        } else {
+            binding.alternative.visibility = View.INVISIBLE
+        }
+
+        binding.editText.setOnClickListener{
+            allAlternatives?.let {
+                if (it.isNotEmpty()) {
+                    val mBuilder = AlertDialog.Builder(context)
+                    mBuilder.setTitle(context?.resources?.getString(R.string.choose_alternative))
+                    val options = allAlternatives!!.map { el -> el.alternativeTitle }.toMutableList()
+                    options.add("")
+                    mBuilder.setSingleChoiceItems(
+                        options.toTypedArray(), -1
+                    )
+                    { dialogInterface, i ->
+                        position = i
+                        dialogInterface.dismiss();
+                    }
+                    mBuilder.show()
+                }
+            }
+        }
         updateColorButton()
         binding.button3.setOnClickListener{
             args.trafficLight.redColor = !args.trafficLight.redColor
@@ -62,11 +96,11 @@ class EditTrafficLight : Fragment() {
             this.findNavController().navigateUp()
         }
         binding.button4.setOnClickListener{
-            if (binding.editText.text.toString().isBlank()){
-                args.trafficLight.alternativeTitle = null
-            } else {
-                args.trafficLight.alternativeTitle = binding.editText.text.toString().trim()
+            var alternative: Alternative? = null
+            if(position< allAlternatives?.size!!){
+                alternative = allAlternatives!![position]
             }
+            args.trafficLight.alternative = alternative
             viewModel.update(args.trafficLight)
             this.findNavController().navigateUp()
         }

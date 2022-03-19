@@ -17,4 +17,6 @@
     <string name="created_at">Created at: %1$s</string>
     <string name="color">Color</string>
     <string name="delete">Delete</string>
+    <string name="choose_alternative">Choose alternative</string>
+    <string name="add_alternative">Add alternative</string>
 </resources>

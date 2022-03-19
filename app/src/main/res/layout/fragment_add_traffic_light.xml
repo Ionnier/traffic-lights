@@ -4,45 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTrafficLightFragment"
-    tools:viewBindingIgnore="true">
+    tools:context=".AddTrafficLightFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/latitude_longitude"
         android:layout_marginTop="16dp"
+        android:text="@string/latitude_longitude"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/alternative_name"
-        app:layout_constraintTop_toTopOf="@+id/info" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.5"
         android:layout_height="0dp"
+        android:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/green"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintWidth_percent="0.5" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.5"
         android:layout_height="0dp"
         android:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_alternative"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_alternative"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

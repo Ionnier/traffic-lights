@@ -1,6 +1,7 @@
 package com.example.semafoare
 
 import androidx.lifecycle.*
+import com.example.semafoare.database.Alternative
 import com.example.semafoare.database.TrafficLight
 import com.example.semafoare.database.TrafficLightDao
 import com.example.semafoare.database.TrafficLightRepository
@@ -11,9 +12,15 @@ import kotlinx.coroutines.withContext
 
 class TrafficLightViewModel(private val repository: TrafficLightRepository): ViewModel() {
     fun allData(): Flow<List<TrafficLight>> = repository.allData
+    fun allAlternatives(): Flow<List<Alternative>> = repository.alternatives
     fun insert(trafficLight: TrafficLight) = viewModelScope.launch {
         withContext(Dispatchers.IO){
             repository.insert(trafficLight)
+        }
+    }
+    fun insert(alternative: Alternative) = viewModelScope.launch {
+        withContext(Dispatchers.IO){
+            repository.insertAlternative(alternative)
         }
     }
     fun delete(trafficLight: TrafficLight) = viewModelScope.launch {

@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.*
 import java.util.*
 
-@Database(entities = [TrafficLight::class], version = 5)
+@Database(entities = [TrafficLight::class, Alternative::class], version = 8)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun trafficLightDao(): TrafficLightDao
+    abstract fun alternativeDao(): AlternativeDao
 
     companion object {
         @Volatile

@@ -56,15 +56,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/longitude"/>
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/alternative"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/alternative_name"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/traffic_know_alt"
+        android:textSize="16sp"
         android:layout_marginVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createdAt"/>
+
+    <Button
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/choose_alternative"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alternative"/>
 
     <Button
         android:id="@+id/button3"

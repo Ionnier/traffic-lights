@@ -41,8 +41,8 @@ class TrafficLightAdapter(val context: Context) : ListAdapter<TrafficLight, Traf
                 textViewCoords.text = String.format(context.resources.getString(R.string.traffic_light_lat_and_long),
                     trafficLight.longitude!! *100/100, trafficLight.latitude!! *100/100)
             }
-            if(trafficLight.alternativeTitle != null){
-                textViewAlt.text = String.format(context.resources.getString(R.string.traffic_know_alt), trafficLight.alternativeTitle)
+            if(trafficLight.alternative != null){
+                textViewAlt.text = String.format(context.resources.getString(R.string.traffic_know_alt), trafficLight.alternative!!.alternativeTitle)
                 textViewAlt.visibility = View.VISIBLE
             } else {
                 textViewAlt.visibility = View.GONE
