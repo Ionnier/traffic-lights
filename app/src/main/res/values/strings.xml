@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Semafoare</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="traffic_light_id">TrafficLight with ID: %1$s</string>
+    <string name="traffic_light_lat_and_long">Located at longitude %1$s and latitude %2$s</string>
+    <string name="traffic_know_alt">Also known as %1$s</string>
+    <string name="edit">Edit</string>
+    <string name="traffic_lights">Traffic Lights</string>
+    <string name="add_data">Add data</string>
+    <string name="location_services_off">Location services are turned off.</string>
+    <string name="alternative_name">Alternative Name</string>
+    <string name="latitude_longitude">Latitude: %1$s\nLongitude: %2$s</string>
+    <string name="latitude">Latitude: %1$s</string>
+    <string name="longitude">Longitude: %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="created_at">Created at: %1$s</string>
+    <string name="color">Color</string>
+    <string name="delete">Delete</string>
+</resources>

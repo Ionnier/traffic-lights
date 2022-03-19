@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.semafoare.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_addTrafficLightFragment"
+            app:destination="@id/addTrafficLightFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editTrafficLight"
+            app:destination="@id/editTrafficLight" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTrafficLightFragment"
+        android:name="com.example.semafoare.AddTrafficLightFragment"
+        android:label="fragment_add_traffic_light"
+        tools:layout="@layout/fragment_add_traffic_light" >
+        <argument android:name="latitude"
+            app:argType="float" />
+        <argument android:name="longitude"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTrafficLight"
+        android:name="com.example.semafoare.EditTrafficLight"
+        android:label="fragment_edit_traffic_light"
+        tools:layout="@layout/fragment_edit_traffic_light" >
+        <argument
+            android:name="trafficLight"
+            app:argType="com.example.semafoare.database.TrafficLight" />
+    </fragment>
+</navigation>
