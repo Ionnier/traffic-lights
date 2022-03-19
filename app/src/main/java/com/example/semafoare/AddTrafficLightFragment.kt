@@ -138,8 +138,8 @@ class AddTrafficLightFragment : Fragment() {
             viewModel.insert(
                 TrafficLight(
                     null,
-                    String.format("%.6f", args.latitude).toDouble(),
-                    String.format("%.6f", args.longitude).toDouble(),
+                    args.latitude.toDouble(),
+                    args.longitude.toDouble(),
                     null,
                     redColor,
                     Date()

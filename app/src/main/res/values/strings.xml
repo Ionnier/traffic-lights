@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Semafoare</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Traffic Lights</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="traffic_light_id">TrafficLight with ID: %1$s</string>
     <string name="traffic_light_lat_and_long">Located at longitude %1$s and latitude %2$s</string>

@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.semafoare.MainFragmentDirections
 import com.example.semafoare.R
 import com.google.android.material.color.MaterialColors
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TrafficLightAdapter(val context: Context) : ListAdapter<TrafficLight, TrafficLightAdapter.TrafficLightViewHolder>(TrafficLightComparator()) {
 
@@ -47,8 +50,9 @@ class TrafficLightAdapter(val context: Context) : ListAdapter<TrafficLight, Traf
             } else {
                 textViewAlt.visibility = View.GONE
             }
+
             if(trafficLight.createdTime != null){
-                textViewCreation.text = trafficLight.createdTime.toString()
+                textViewCreation.text = DateFormat.getDateTimeInstance().format(trafficLight.createdTime as Date)
                 textViewCreation.visibility = View.VISIBLE
             } else {
                 textViewCreation.visibility = View.GONE

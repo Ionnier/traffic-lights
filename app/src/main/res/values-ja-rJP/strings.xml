@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">信号機</string>
+    <string name="hello_blank_fragment">こんにちはブランク断片</string>
+    <string name="traffic_light_id">ID付き信号機: %1$s</string>
+    <string name="traffic_light_lat_and_long">経度 %1$s と緯度にあります %2$s</string>
+    <string name="traffic_know_alt">またの名を %1$s</string>
+    <string name="edit">エディット</string>
+    <string name="traffic_lights">信号機</string>
+    <string name="add_data">データを付け加える</string>
+    <string name="location_services_off">位置情報サービスオフになっています。</string>
+    <string name="alternative_name">替え名</string>
+    <string name="latitude_longitude">緯度: %1$s\n経度: %2$s</string>
+    <string name="latitude">緯度: %1$s</string>
+    <string name="longitude">経度: %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="created_at">で作成した: %1$s</string>
+    <string name="color">色</string>
+    <string name="delete">デリート</string>
+    <string name="choose_alternative">代替を選ぶ</string>
+    <string name="add_alternative">代替を付け加える</string>
+</resources>

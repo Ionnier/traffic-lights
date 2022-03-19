@@ -21,6 +21,9 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.semafoare.database.Alternative
 import com.example.semafoare.databinding.FragmentEditTrafficLightBinding
+import java.lang.Exception
+import java.text.DateFormat
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +63,8 @@ class EditTrafficLight : Fragment() {
         binding.longitude.text =
             context?.resources?.let { String.format(it.getString(R.string.longitude), args.trafficLight.longitude) }
         binding.createdAt.text =
-            context?.resources?.let { String.format(it.getString(R.string.created_at),args.trafficLight.createdTime.toString()) }
+            context?.resources?.let { String.format(it.getString(R.string.created_at),
+                DateFormat.getDateTimeInstance().format(args.trafficLight.createdTime as Date)) }
         if(args.trafficLight.alternative != null){
             binding.alternative.text =
                 context?.resources?.let { String.format(it.getString(R.string.traffic_know_alt), args.trafficLight.alternative!!.alternativeTitle)}
@@ -97,15 +101,20 @@ class EditTrafficLight : Fragment() {
         }
         binding.button4.setOnClickListener{
             var alternative: Alternative? = null
-            if(position< allAlternatives?.size!!){
-                alternative = allAlternatives!![position]
+            try{
+                if(position< allAlternatives?.size!!){
+                    alternative = allAlternatives!![position]
+                }
+            }
+            catch (e: Exception){
+                alternative = null
             }
             args.trafficLight.alternative = alternative
             viewModel.update(args.trafficLight)
             this.findNavController().navigateUp()
         }
         Glide.with(this)
-            .load("https://api.mapbox.com/styles/v1/mapbox/light-v10/static/${args.trafficLight.longitude},${args.trafficLight.latitude},17/500x300?access_token=pk.eyJ1IjoiaW9ubmllciIsImEiOiJja3huOHNsa28yNjNtMnJrajNpOTQ1bjdqIn0.eIHET3y_HWq9KqJUt-Utjg")
+            .load("https://api.mapbox.com/styles/v1/mapbox/light-v10/static/${args.trafficLight.longitude},${args.trafficLight.latitude},17/500x300?access_token=${BuildConfig.MAP_BOX_API_KEY}")
             .into(binding.imageView)
 
     }

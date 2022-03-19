@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Semafor</string>
+    <string name="hello_blank_fragment">Bună fragment gol</string>
+    <string name="traffic_light_id">Semafor cu ID: %1$s</string>
+    <string name="traffic_light_lat_and_long">Localizat la longitudine %1$s și latitudine %2$s</string>
+    <string name="traffic_know_alt">De asemenea cunoscut ca și %1$s</string>
+    <string name="edit">Editați</string>
+    <string name="traffic_lights">Semafor</string>
+    <string name="add_data">Adăugați date</string>
+    <string name="location_services_off">Serviciile de localizare sunt dezactivate.</string>
+    <string name="alternative_name">Nume Alternativ</string>
+    <string name="latitude_longitude">Latitudine: %1$s\nLongitudine: %2$s</string>
+    <string name="latitude">Latitudine: %1$s</string>
+    <string name="longitude">Longitudine: %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="created_at">Creat la: %1$s</string>
+    <string name="color">Culoare</string>
+    <string name="delete">Ștergeți</string>
+    <string name="choose_alternative">Alegeți alternativă</string>
+    <string name="add_alternative">Adăugați alternativă</string>
+</resources>
